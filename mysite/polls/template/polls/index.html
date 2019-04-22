@@ -1,7 +1,7 @@
     {% if latest_issues_list %}
         <ul>
      {% for issues in latest_issues_list %}
-         <li><a href=" polls/{{issues.id}}/">{{issue.issue_text}}</a></li>
+         <li><a href="{% url 'polls:detail' issue.id %}">{{issue.issue_text }}</a></li>
      {% endfor}
      </ul>
     {% endfor %}
