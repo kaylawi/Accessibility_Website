@@ -1,10 +1,18 @@
 from django.shortcuts import render
 
+## Additional Notes Below
+
+# request.POST is a dictionary-like object that lets you access submitted data by key name and its values are always strings 
+
+# request.POST['choice'] returns ID of the selected choice, as a string. Also, raise KeyError if choice wasn't provided in POST data and redisplays the question form with an error messag if choice isn't given. 
+
+# reverse() help avoid having to hardcode a URL in the view function 
 
 # Create your views here.
 
-from django.http import Http404 
-from django.shortcuts import render
+from django.http import HttpResponse, HttpResponseRedirect
+from django.shortcuts import get_object_or_404, render
+from django.urls import reverse
 
 from .models import IssuesReported 
 
@@ -24,7 +32,23 @@ def results(request, IssuesReported_id):
     return HttpResponse(response % IssuesReported_id)
 
 def vote(request, IssuesReported_id):
-    return HttpReponse ("You are voting on issue %s." % IssuesReported_id)
+    issue = get_object_or_404(Issue, pk=issue_id)
+    try:
+        selected_choice = 
+    issue.choice_set.get(pk=request.POST['choice'])
+    except (KeyError, Choice.DoesNotExist):
+            # Redisplay the issue voting form.
+        return render (request, 'polls/details.html', {
+        'issue': issue,
+        'error_message': " You didn't select a choice.",
+    })
+
+    else:
+        selected_choice.votes +=1
+        selected_choice.save()
+        #Always return an HttpResponseRedirect after successfully dealing with POST data. This prevents data from being posted twice if a user hits the back button
+
+        return HttpResponseRedirect(reverse('polls:results', args= (issue.id)))
 
 # Error Message that issue doesn't exist
 def detail(request, issues_id):
