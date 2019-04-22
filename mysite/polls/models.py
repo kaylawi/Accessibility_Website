@@ -4,7 +4,7 @@ from django.db import models
 from django.utils import timezone 
 
 #DateTimeField = datetimes
-# CharField = character fields and requires max_length 
+#CharField = character fields and requires max_length 
 #ForeignKey = tells which tables are related to each other
 
 class IssuesReported(models.Model): #This class represents a table that will represent all of the incoming and current issues on campus 
