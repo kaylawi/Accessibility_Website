@@ -10,26 +10,29 @@ from django.shortcuts import render
 
 # Create your views here.
 
-from django.http import HttpResponse, HttpResponseRedirect
+from django.http import HttpResponseRedirect
 from django.shortcuts import get_object_or_404, render
 from django.urls import reverse
+from django.views import generic
 
 from .models import IssuesReported 
 
 #This function loads the template polls/index.html and pass it a context of dictionary mapping template variable names to Python objects
 
-def index(request):
-    latest_issues_list = IssuesReported.objects.order_by('-pub_date'])[:5]
-    template = loader.get_template('polls/index.html')
-    context = {'latest_issues_list': latest_issues_list}
-    return render(request, 'polls/index.html', context)
+class IndexView(generic.ListView):
+    template_name = 'polls/index.html'
+    context_object_name = 'latest_issues_list'
 
-def detail(request, IssuesReported_id)
-    return HttpResponse("You're looking at issue %s." % IssuesReported_id)
+    def get_queryset(self):
+        return IssuesReported.objects.order_by('-pub_date')[:5]  #Return the last five results
 
-def results(request, IssuesReported_id):
-    response = "You're looking at the results of issues %s."
-    return HttpResponse(response % IssuesReported_id)
+class DetailView(generic.DetailView):
+    model = IssuesReported
+    template_name = 'polls/detail.html'
+
+class ResultsView(generic.DetailView):
+    model = IssuesReported
+    template_name = 'polls/results.html'
 
 def vote(request, IssuesReported_id):
     issue = get_object_or_404(Issue, pk=issue_id)
