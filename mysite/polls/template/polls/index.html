@@ -1,7 +1,7 @@
-    {% if latest_issues_list %}
+    {% if latest_issue_list %}
         <ul>
-     {% for issues in latest_issues_list %}
-         <li><a href="{% url 'polls:detail' issue.id %}">{{issue.issue_text }}</a></li>
+     {% for user_name in latest_issue_list %}
+         <li><a href="{% url 'polls:detail' user_name.id %}">{{issue.issue_text }}</a></li>
      {% endfor}
      </ul>
     {% endfor %}
