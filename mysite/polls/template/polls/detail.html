@@ -1,6 +1,19 @@
-<h1>{{ user_name.user_name_text }}</h1>
+<!-- <h1>{{ user_name.user_name_text }}</h1>
 <ul>
-{% for choice in question.choice_set.all %}
-    <li>{{ choice.display_name }}</li>
+{% for users in user_name.choice_set.all %}
+    <li>{{Users.display_name }}</li>
 {% endfor %}
-</ul>
+</ul> -->
+
+<h1>{{ user_name.issue_text }}</h1>
+
+{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+
+<form action="{% url 'polls:vote' user_name.id %}" method="post">
+{% csrf_token %}
+{% for choice in user_name.choice_set.all %}
+    <input type="radio" name="choice" id="choice{{ forloop.counter }}" value="{{ choice.id }}">
+    <label for="choice{{ forloop.counter }}">{{ choice.choice_text }}</label><br>
+{% endfor %}
+<input type="submit" value="Vote">
+</form>    

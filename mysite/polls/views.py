@@ -8,23 +8,47 @@
 
 # Create your views here.
 
-from django.shortcuts import get_object_or_404,render
-from .models import IssuesReported
+from django.http import HttpResponseRedirect
+from django.shortcuts import get_object_or_404, render
+from django.urls import reverse
+from django.views import generic
 
-def index(request):
-    latest_issue_list = IssuesReported.objects.order_by('-pub_date')[:5]
-    context = {'latest_issue_list': latest_issue_list}
-    return render(request, 'polls/index.html', context)
+from .models import Users, IssuesReported
 
-def detail(request, user_name_id):
-    user_name_ = get_object_or_404(IssuesReported, pk=user_name_id) 
-   return render(request, 'polls/detail.html', {'username': user_name})  
 
-def results(request, user_name_id):
-    response = "You're looking at the results of user %s"
-    return HttpResponse(response % user_name_id)
+class IndexView(generic.ListView):
+    template_name = 'polls/index.html'
+    context_object_name = 'latest_issue_list'
 
-def vote(request, user_name_id):
-    return HttpResponse ("You're voting on question %s." %user_name_id)
+    def get_queryset(self):
+        # Return the last five published questions
+        return IssuesReported.objects.order_by('-pub_date')[:5]
 
-# Leave the rest of the views (detail, results, vote) unchanged 
+
+class DetailView(generic.DetailView):
+    model = IssuesReported
+    template_name = 'polls/detail.html'
+
+
+class ResultsView(generic.DetailView):
+    model = IssuesReported
+    template_name = 'polls/results.html'
+
+
+def vote(request, question_id):
+    user_name = get_object_or_404(Question, pk=question_id)
+    try:
+        selected_choice = question.choice_set.get(pk=request.POST['choice'])
+    except (KeyError, Choice.DoesNotExist):
+        # Redisplay the question voting form.
+        return render(request, 'polls/detail.html', {
+            'username': user_name,
+            'error_message': "You didn't select a user name.",
+        })
+    else:
+        selected_choice.votes += 1
+        selected_choice.save()
+        # Always return an HttpResponseRedirect after successfully dealing
+        # with POST data. This prevents data from being posted twice if a
+        # user hits the Back button.
+        return HttpResponseRedirect(reverse('polls:results', args=(user_name.id,)))
