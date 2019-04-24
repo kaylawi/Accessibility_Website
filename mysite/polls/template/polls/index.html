@@ -1,12 +1,9 @@
-    {% if latest_issue_list %}
-        <ul>
-     {% for user_name in latest_issue_list %}
-         <li><a href="{% url 'polls:detail' user_name.id %}">{{issue.issue_text }}</a></li>
-     {% endfor}
-     </ul>
+{% if latest_issue_list %}
+    <ul>
+    {% for user_name in latest_issue_list %}
+        <li><a href="{% url 'polls:detail' user_name.id %}">{{ user_name.issue_text }}</a></li>
     {% endfor %}
     </ul>
-{%else%}
-    <p> No polls are available </p>
+{% else %}
+    <p>No polls are available.</p>
 {% endif %}
-
