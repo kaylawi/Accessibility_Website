@@ -8,13 +8,16 @@
 
 # Create your views here.
 
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, HttpResponse
 from django.shortcuts import get_object_or_404, render
 from django.urls import reverse
 from django.views import generic
 
 from .models import Users, IssuesReported
 
+def test(request):
+    #return HttpResponse("test")
+    return render(request, 'polls/test.html')
 
 class IndexView(generic.ListView):
     template_name = 'polls/index.html'
@@ -36,10 +39,10 @@ class ResultsView(generic.DetailView):
 
 
 def vote(request, question_id):
-    user_name = get_object_or_404(Question, pk=question_id)
+    user_name = get_object_or_404(IssuesReported, pk=question_id)
     try:
-        selected_choice = Question.choice_set.get(pk=request.POST['choice'])
-    except (KeyError, Choice.DoesNotExist):
+        selected_choice = IssuesReported.choice_set.get(pk=request.POST['choice'])
+    except (KeyError, Users.DoesNotExist):
         # Redisplay the question voting form.
         return render(request, 'polls/detail.html', {
             'username': user_name,
@@ -52,3 +55,8 @@ def vote(request, question_id):
         # with POST data. This prevents data from being posted twice if a
         # user hits the Back button.
         return HttpResponseRedirect(reverse('polls:results', args=(user_name.id,)))
+
+
+
+
+
