@@ -1,6 +1,6 @@
 <h1>{{ user_name.user_name_text }}</h1>
 <ul>
-{% for users in user_name.choice_set.all %}
+{% for users in user_name.users_set.all %}
     <li>{{Users.display_name }}</li>
 {% endfor %}
 </ul>
