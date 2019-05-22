@@ -9,7 +9,7 @@
       <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
       <meta name="generator" content="Jekyll v3.8.5">
       <title>Jumbotron Template · Bootstrap</title> 
-      <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/jumbotron/"> -->
+      <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/jumbotron/"> 
   
       <!-- Bootstrap core CSS -->
    <link href="/docs/4.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> 
@@ -26,7 +26,10 @@
           user-select: none;
       
         }
-  
+
+        /* .jumbotron {
+          background-color:blue;
+        } */
         @media (min-width: 768px) {
           .bd-placeholder-img-lg {
             font-size: 3.5rem;
@@ -40,7 +43,7 @@
   </head>
   <body> 
       {% block body %}
-      <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+      <!-- <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -59,11 +62,11 @@
               <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
             </form>
           </div>
-        </nav>
+        </nav> -->
         
         <main role="main">
         
-          <!-- Main jumbotron for a primary marketing message or call to action -->
+          <!--Main jumbotron for a primary marketing message or call to action -->
           <div class="jumbotron">
             <div class="container">
               <h1 class="display-3">Welcome!</h1>
@@ -73,27 +76,30 @@
           </div>
         
           <div class="container"> 
-            <!-- Example row of columns -->
+           
+            <!-- Report Concerns -->
+
             <div class="row">
               <div class="col-md-4">
                 <h2>Report Concerns Here </h2>
                 <p>Feel free to report concerns so it can be reported to correct department and addressed in a timely manner </p>
-                <p><a class="btn btn-secondary" href="map.html" role="button">View details &raquo;</a></p>
+                <p><a class="btn btn-secondary" href="{% url 'map' %}" role="button">View details &raquo;</a></p>
               </div>
+ 
+              <!-- Resources -->
+
               <div class="col-md-4">
-                <h2>Organizations</h2>
-                <p>Student led and faculty/staff led organizations on campus are noted in this section.  </p>
-                <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
+                <h2>Resources</h2>
+                <p>Student led and faculty/staff led organizations on campus are noted in this section and more info on Services for Students with Disabilities.  </p>
+                <p><a class="btn btn-secondary" href="{% url 'resources' %}" role="button">View details &raquo;</a></p>
               </div>
+          
+              <!-- Projects -->
+              
               <div class="col-md-4">
-                <h2>Services for Students with Disabilities</h2>
-                <p>Accomodations for classes etc. </p>
-                <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
-              </div>
-              <div class="col-md-4">
-                  <h2>Ongoing Projects</h2>
-                  <p> Current projects are included in this section </p>
-                  <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
+                  <h2>Current Projects and Initatives</h2>
+                  <p> Current projects are included in this section and initiatives relating to disabilities</p>
+                  <p><a class="btn btn-secondary" href="{% url 'projects' %}" role="button">View details &raquo;</a></p>
                 </div>
             </div>
         

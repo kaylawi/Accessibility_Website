@@ -24,12 +24,26 @@
 		}
 	</style>
 
-	<style>body { padding: 0; margin: 0; } #map { height: 100%; width: 100vw; }</style>
-	{%endblock%}
-
+	<style>body { padding: 0; margin: 0; } #map { height: 75%; width: 100vw; }</style>
+	{% endblock %}
 </head>
 <body>
 	{% block body %}
+	<div class="container">
+		<form method="post">
+			{% csrf_token %}
+			Address your concerns below:<br>
+			<input type="text" name="concerns"><br>
+			Please classify the level of obstruction:<br> 
+			<input type="radio" name="level" 
+			value="Temporary Obstruction/barrier" checked> Temporary<br>
+			<input type="radio" name="level" value="Permanent Obstruction/barrier" checked> Permanent<br>
+			Feel free to include more informaiton on obstruction:
+			<input type="text" name="obstruction">
+			<button type="submit" name="button"></button>
+		</form>
+	</div>
+
 
 <div id='map'></div>
 
@@ -72,6 +86,6 @@ geolayer.addTo(map);
 
 	map.locate({setView: true, maxZoom: 16});
 </script>
-	{% endblock% }
+	{% endblock %}
 </body>
 </html>

@@ -1,6 +1,7 @@
-<h1>{{ user_name.user_name_text }}</h1>
+test
+<h1>{{ issuesreported.issue_text }}</h1>
 <ul>
-{% for users in user_name.users_set.all %}
+{% for issues in user_name.users_set.all %}
     <li>{{Users.display_name }}</li>
 {% endfor %}
 </ul>
