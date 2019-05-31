@@ -23,4 +23,16 @@ def projects(request):
 def administration(request):
     return render(request, 'accounts/administration.html')
 
+def support(request):
+    return render(request, 'accounts/support.html')
+
+def orgs(request):
+    return render(request, 'accounts/orgs.html')
+
+def report(request):
+    return render(request, 'accounts/report.html')
+
+def fix(request):
+    return render(request, 'accounts/report/map.html')
+
     

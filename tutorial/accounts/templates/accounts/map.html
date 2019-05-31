@@ -29,12 +29,12 @@
 			margin: 0;
 		}
 		#map {
-			width: 600px;
+			width: 400px;
 			height: 400px;
 		}
 	</style>
 
-	<style>body { padding: 0; margin: 0; } #map { height: 75%; width: 100vw; }</style>
+	<style>body { padding: 0; margin: 0; } #map { height: 45%; width: 100vw; }</style>
 
 	
 	{% endblock %}
@@ -42,20 +42,47 @@
 <body>
 	{% block body %}
 
-	<div class="container">
-		<form method="post">
-			{% csrf_token %}
-			Address your concerns below:<br>
-			<input type="text" name="concerns"><br>
-			Please classify the level of obstruction:<br> 
-			<input type="radio" name="level" 
-			value="Temporary Obstruction/barrier" checked> Temporary<br>
-			<input type="radio" name="level" value="Permanent Obstruction/barrier" checked> Permanent<br>
-			Feel free to include more informaiton on obstruction:
-			<input type="text" name="obstruction">
-			<input type="submit" value="Submit">
-		</form>
-	</div>
+<!-- Form for Submission -->
+
+<form>
+		<div class="form-group">
+			<label for="exampleInputEmail1">Email address</label>
+			<input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email">
+		</div>
+		<div class="form-group">
+			<label for="exampleInputPassword1">Password</label>
+			<input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+		</div>
+		<div class="form-group">
+
+									<div class="list-group">
+													<a class="list-group-item list-group-item-action">
+														Select Category that best fit the concern
+													</a>
+													<a href="#" class="list-group-item list-group-item-action"> Snow Removal </a>
+													<a href="#" class="list-group-item list-group-item-action"> Housing Related </a>
+													<a href="#" class="list-group-item list-group-item-action"> Classroom Related </a>
+													<a href="#" class="list-group-item list-group-item-action"> Wheelchair accessible </a>
+												</div>
+
+	
+
+		<!--  Upload Image -->
+			<br>
+			<label for="exampleInputFile"> Upload Image of concern </label>
+			<input type="file" id="exampleInputFile">
+		</br>
+
+			<!-- Text of Details -->
+			<br>
+			<heading> Please provide as many details pertaining to the concern </heading>
+			<textarea class="form-control" rows="3"></textarea>
+			</br>
+		
+		</div>
+	
+			</form>
+	<!--  Map Locate Me -->
 
 
 <div id='map'></div>
@@ -99,6 +126,8 @@ geolayer.addTo(map);
 
 	map.locate({setView: true, maxZoom: 16});
 </script>
+
+
 	{% endblock %}
 </body>
 </html>

@@ -9,6 +9,10 @@ urlpatterns = [
     url(r'^projects/$',views.projects, name="projects"),
     url(r'^resources/$',views.resources, name="resources"),
     url(r'^administration/$',views.administration, name="administration"),
+    url(r'^support/$', views.support, name="support"),
+    url(r'^orgs/$', views.orgs, name="orgs"),
+    url(r'^report/$', views.report, name="report"),
+    url(r'^report/map/$', views.fix, name="fix"),
 
 
 ]
