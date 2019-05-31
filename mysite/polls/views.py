@@ -15,6 +15,9 @@ from django.views import generic
 
 from .models import Users, IssuesReported
 
+
+#Home Page 
+
 def test(request):
     #return HttpResponse("test")
     return render(request, 'polls/test.html')

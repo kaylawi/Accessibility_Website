@@ -1,4 +1,12 @@
-#Models used for users to report issues and concerns 
+
+
+# class Vote(models.Model):
+#     issue_text = models.CharField(max_length = 500) #Won't accept strings > 500 characters
+#     count = models.IntegerField(default=0)
+
+#     def __str__(self):
+#         return '%s: %d votes' % (self.issue_text,self.count)
+
 
 import datetime
 
@@ -20,3 +28,14 @@ class Users(models.Model): #This class represents users who reported issues
     user_name = models.ForeignKey(IssuesReported, on_delete=models.CASCADE) #Won't accept string > 25 Characters
     display_name = models.CharField(max_length = 100) # Won't accept string > 100 Characters
     votes = models.IntegerField(default=0)
+
+  
+
+
+
+
+
+  
+
+
+

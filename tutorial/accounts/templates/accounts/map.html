@@ -6,12 +6,22 @@
 	<title>Mobile tutorial - Leaflet</title>
 
 	<meta charset="utf-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="description" content="">
+	<meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+	<meta name="generator" content="Jekyll v3.8.5">
+	<title>Jumbotron Template · Bootstrap</title> 
+	<link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/jumbotron/"> 
+
 
 	<link rel="shortcut icon" type="image/x-icon" href="docs/images/favicon.ico" />
 
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css" integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA==" crossorigin=""/>
-    <script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js" integrity="sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg==" crossorigin=""></script>
+	<script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js" integrity="sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg==" crossorigin=""></script>
+	
+
+      <!-- Bootstrap core CSS -->
+	  <link href="/docs/4.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> 
 
 	<style>
 		html, body {
@@ -25,10 +35,13 @@
 	</style>
 
 	<style>body { padding: 0; margin: 0; } #map { height: 75%; width: 100vw; }</style>
+
+	
 	{% endblock %}
 </head>
 <body>
 	{% block body %}
+
 	<div class="container">
 		<form method="post">
 			{% csrf_token %}
@@ -40,7 +53,7 @@
 			<input type="radio" name="level" value="Permanent Obstruction/barrier" checked> Permanent<br>
 			Feel free to include more informaiton on obstruction:
 			<input type="text" name="obstruction">
-			<button type="submit" name="button"></button>
+			<input type="submit" value="Submit">
 		</form>
 	</div>
 
