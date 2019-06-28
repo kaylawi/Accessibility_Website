@@ -12,7 +12,10 @@
       <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/jumbotron/"> 
   
       <!-- Bootstrap core CSS -->
-   <link href="/docs/4.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> 
+       <link href="/docs/4.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> 
+
+     <!-- Bootstrap Responsive -->
+      <link rel="stylesheet" href="css/bootstrap-responsive.css">
 
   
   
@@ -43,6 +46,10 @@
   </head>
   <body> 
       {% block body %}
+
+      <!-- Responsive Navigation Bar  -->
+
+
       <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -63,16 +70,13 @@
             </li>
             <li class="nav-item active">
               <a class="nav-link" href="projects.html"> Projects and Initatives</a>
-            </li>
-            <!-- <li class="nav-item active">
-              <a class="nav-link" href="http://127.0.0.1:8000/admin/login/?next=/admin/"> Admin Only </a>
-            </li> -->
+            </li> 
 
-            <!-- Access the polls folder to access django polling and admin info
-             -->
+            <!-- Access the polls folder to access django polling and admin info -->
             <li class="nav-item active">
-              <a class="nav-link" href="http://127.0.0.1:8000/admin/login/?next=/admin/"> Admin Only </a>
+              <a class="nav-link" href="http://127.0.0.1:8000/admin/login/?next=/admin/ "> Admin Only </a>
             </li>
+    
 
             </ul>
             <form class="form-inline my-2 my-lg-0">
@@ -89,7 +93,9 @@
             <div class="container">
               <h1 class="display-3">Welcome!</h1>
               <p>This is a website open to University of Michigan's community so that there is a resource to report concerns on campus in relation to accessibility and resouces on campus especially for those with disabilities.These resources can range from organizations to ongoing efforts and etc. </p>
-              <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more &raquo;</a></p>
+
+              <!-- Learn More Button -->
+              <!-- <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more &raquo;</a></p> -->
             </div>
           </div>
         
