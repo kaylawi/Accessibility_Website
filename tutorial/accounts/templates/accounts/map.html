@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 <!DOCTYPE html>
-<html>
+<html lang="en"> 
 <head>
 	{% block head %}
 	<title>Mobile tutorial - Leaflet</title>
@@ -73,6 +73,7 @@
               <a class="nav-link" href="http://127.0.0.1:8000/admin/login/?next=/admin/"> Admin Only </a>
             </li>
 
+			<!-- Search -->
             </ul>
             <form class="form-inline my-2 my-lg-0">
               <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
@@ -96,16 +97,19 @@
 			<label for="exampleInputPassword1">Password</label>
 			<input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
 		</div> -->
+
 		<div class="form-group">
 
 									<div class="list-group">
-													<a class="list-group-item list-group-item-action">
+										<!-- <h5> Please select the category that best fit the concern </h5> -->
+												 <a class="list-group-item list-group-item-action">
+
 														Select Category that best fit the concern
-													</a>
-													<a href="#" class="list-group-item list-group-item-action"> Snow Removal </a>
+													</a> 
+													<a href="#" class="list-group-item list-group-item-action"> Weather Related </a>
 													<a href="#" class="list-group-item list-group-item-action"> Housing Related </a>
 													<a href="#" class="list-group-item list-group-item-action"> Classroom Related </a>
-													<a href="#" class="list-group-item list-group-item-action"> Wheelchair accessible </a>
+													<a href="#" class="list-group-item list-group-item-action"> Obstruction/Damage Related </a>
 												</div>
 
 	
@@ -118,13 +122,16 @@
 
 			<!-- Text of Details -->
 			<br>
-			<heading> Please provide as many details pertaining to the concern </heading>
+			<heading> Please provide as many details as possible pertaining to the concern </heading>
+			<label for="details">Please provide as many details as possible pertaining to the concern:</label><br>
 			<textarea class="form-control" rows="3"></textarea>
 			</br>
 		
 		</div>
 	
 			</form>
+
+
 	<!--  Map Locate Me -->
 
 

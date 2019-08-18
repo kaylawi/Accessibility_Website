@@ -1,0 +1,17 @@
+{
+  "name": "sassbootstrap",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "bootstrap": "^4.3.1",
+    "jquery.js": "0.0.2-security",
+    "parcel-bundler": "^1.12.3",
+    "sass": "^1.22.10"
+  }
+}
